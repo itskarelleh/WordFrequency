@@ -1,0 +1,39 @@
+﻿@page "/"
+
+<div class="flex flex-row w-screen h-full">
+    <div class="w-1/2">
+        <h1 class="text-2xl text-zinc-900">Word Frequency</h1>
+        <form class="flex flex-col">
+            <div>
+                <label class="font-serif text-zinc-700 text-semibold">Your text</label>
+                <input class="font-serif resize-y border-1
+                   border-solid rounded-sm border-slate-300"
+                       type="text" value="@currentText" @onchange="@updateCurrentText" />
+            </div>
+           
+            <button disabled="@textChanged"
+                    class="p-2 font-mono drop-shadow-sm bg-cyan-600 text-white disabled:bg-zinc-500 disabled:text-zinc-100 ">
+                Translate
+            </button>
+        </form>
+    </div>
+    <div class="w-1/2 bg-cyan-500 h-screen">
+        <h1>Let's Translate Some Words!</h1>
+        <!--Word Frequency Table-->
+    </div>
+</div>
+
+
+@code {
+   
+    private String currentText { get; set; }
+    //private String prev 
+    private Boolean textChanged = false;
+ 
+    private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    {
+        currentText = (string)args.Value;
+        textChanged = true;
+    }
+    
+}
