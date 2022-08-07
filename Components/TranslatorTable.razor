@@ -1,0 +1,50 @@
+﻿@using WordFrequency.Models;
+@using WordFrequency.Components; 
+
+<div>
+    <h3 class="text-center text-2xl font-mono text-white">Results</h3>
+    <table class="table-fixed w-1/2 m-auto bg-zinc-100 drop-shadow-lg p-5">
+        <thead>
+            <tr>
+                <th>word</th>
+                <th>frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var word in words)
+            {
+                <tr>
+                    <td class="indent-3">@word.Value</td>
+                    <td class="text-center">@word.Frequency</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p class="font-bold text-white text-center mt-3">Total Amount of Words: @totalWords</p>
+</div>
+
+@code {
+
+    [Parameter]
+    public String textInput { get; set; }
+
+    List<Word> words = new List<Word>();
+    int totalWords;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        /*@ dummy data @*/
+        words.Add(new Word("all", 1));
+        words.Add(new Word("cream", 1));
+        words.Add(new Word("for", 1));
+        words.Add(new Word("I", 1));
+        words.Add(new Word("ice", 1));
+        words.Add(new Word("scream", 3));
+        words.Add(new Word("we", 1));
+        words.Add(new Word("you", 1));
+
+        totalWords = words.Count;
+    }
+
+}

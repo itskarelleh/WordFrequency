@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WordFrequency.Pages
+namespace WordFrequency.Components
 {
     #line hidden
     using System;
@@ -75,8 +75,21 @@ using WordFrequency.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using WordFrequency.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using WordFrequency.Components;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class TranslatorTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -84,23 +97,31 @@ using WordFrequency.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 26 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
        
-    private String currentText { get; set; }
-    private String prevText;
-    private Boolean textChanged = false;
 
-    private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
-    {
-        currentText = (string)args.Value;
-        textChanged = true;
-    }
+    [Parameter]
+    public String textInput { get; set; }
 
+    List<Word> words = new List<Word>();
+    int totalWords;
     protected override void OnInitialized()
     {
-        currentText = "";
-        prevText = currentText;
+        base.OnInitialized();
+
+        /*@ dummy data @*/
+        words.Add(new Word("all", 1));
+        words.Add(new Word("cream", 1));
+        words.Add(new Word("for", 1));
+        words.Add(new Word("I", 1));
+        words.Add(new Word("ice", 1));
+        words.Add(new Word("scream", 3));
+        words.Add(new Word("we", 1));
+        words.Add(new Word("you", 1));
+
+        totalWords = words.Count;
     }
+
 
 #line default
 #line hidden

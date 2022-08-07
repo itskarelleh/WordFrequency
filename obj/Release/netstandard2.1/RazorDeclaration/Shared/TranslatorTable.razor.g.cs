@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WordFrequency.Pages
+namespace WordFrequency.Shared
 {
     #line hidden
     using System;
@@ -75,8 +75,14 @@ using WordFrequency.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 1 "C:\Users\T440\source\repos\WordFrequency\Shared\TranslatorTable.razor"
+using WordFrequency.Models;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class TranslatorTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -84,22 +90,16 @@ using WordFrequency.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 19 "C:\Users\T440\source\repos\WordFrequency\Shared\TranslatorTable.razor"
        
-    private String currentText { get; set; }
-    private String prevText;
-    private Boolean textChanged = false;
+    [Parameter]
+    public String textArea { get; set; }
 
-    private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
-    {
-        currentText = (string)args.Value;
-        textChanged = true;
-    }
+    public List<Word> words;
 
-    protected override void OnInitialized()
+    public List<Word> getFrequencyOfText()
     {
-        currentText = "";
-        prevText = currentText;
+        return words;
     }
 
 #line default

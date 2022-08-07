@@ -343,6 +343,8 @@ C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.csproj.CopyComplete
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.dll
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.pdb
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\qLdjUMxUldco9pPNR_M11AAHHhEeKqOHjGkeeJKcjZo=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\N_K47VBRDulhngMPzCulWZoMAA3dyjZJDXcoUlIP8Dw=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\ew7vwQo4Kia-i1cuAT80x66VWf4O28pZQskutXKBB9k=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\RazorDeclaration\Components\TranslatorTable.razor.g.cs
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\Razor\Components\TranslatorTable.razor.g.cs
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\AFPn0n5rsT0F9SE0Ja6EgZLAqfjUKlmjZkDOplWruwk=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\QxCb2JD9FBbI_vKPLgzqc3gmSmjOilcK7HephniGpTc=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\lJEswlMcNCDsKwHhmoNWcss8Y7lXPhdmWRG7E373AmU=.hash

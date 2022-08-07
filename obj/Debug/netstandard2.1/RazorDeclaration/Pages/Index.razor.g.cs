@@ -75,6 +75,13 @@ using WordFrequency.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 2 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+using WordFrequency.Components;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -84,19 +91,36 @@ using WordFrequency.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
-   
     private String currentText { get; set; }
-    //private String prev 
-    private Boolean textChanged = false;
- 
+    private String prevText;
+    private Boolean isCurrentText;
+    private int characterCount;
+
     private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
     {
         currentText = (string)args.Value;
-        textChanged = true;
+        isCurrentText = false;
+        isCurrentText = false;
+        if(currentText != prevText)
+            isCurrentText = false;
+
+        characterCount = currentText.Length;
     }
-    
+
+    private void submitText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    {
+
+    }
+
+    protected override void OnInitialized()
+    {
+        currentText = "";
+        prevText = currentText;
+        isCurrentText = true;
+
+    }
 
 #line default
 #line hidden
