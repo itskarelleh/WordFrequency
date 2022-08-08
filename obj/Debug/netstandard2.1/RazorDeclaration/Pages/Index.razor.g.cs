@@ -91,26 +91,39 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 42 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
-    private String CurrentText;
-    private String prevText;
-    protected bool isChanged { get; set; }
-    protected bool isDisabled { get; set; }
+    protected TranslatorTable translatorTable;
+    private string currentText;
+    private string NewText;
     private bool isTranslated { get; set; }
     private int? characterCount { get; set; }
+    protected bool isChanged { get; set; }
+    protected bool isDisabled { get; set; }
 
-    private void SubmitText()
+    public void updateCharacterCount()
     {
-        if(!isTranslated) isTranslated = true;
-        Console.WriteLine("isTranslated = " + isTranslated);
+        characterCount = NewText.Length;
+        StateHasChanged();
+    }
+    public void translateText()
+    {
+        isTranslated = !isTranslated;
+
+        if(translatorTable.words.Count >= 1)
+        {
+            translatorTable.resetTable();
+            
+        }
+        translatorTable.convertInputToWordList();
+        translatorTable.getTotalCount();
     }
 
-    private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
     {
-        CurrentText = (string)args.Value;
+        NewText = (string)args.Value;
 
-        if (CurrentText != prevText)
+        if (NewText != currentText)
         {
             isDisabled = false;
         }
@@ -118,9 +131,7 @@ using WordFrequency.Components;
         {
             isDisabled = true;
         }
-
-        Console.WriteLine("isChanged = " + isChanged);
-        characterCount = CurrentText.Length;
+        characterCount = NewText.Length;
     }
 
     private string characterCountValiditiy()
@@ -143,16 +154,14 @@ using WordFrequency.Components;
 
     private string textAreaValidity()
     {
-        if (CurrentText == "") return "textarea-error";
+        if (NewText == "") return "textarea-error";
         else return "textarea-default";
     }
-
-
   
     protected override void OnInitialized()
     {
-        CurrentText = "";
-        prevText = CurrentText;
+        NewText = "";
+        currentText = NewText;
         characterCount = 0;
         isTranslated = false;
         isDisabled = true;

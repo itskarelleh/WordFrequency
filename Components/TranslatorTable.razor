@@ -2,38 +2,41 @@
 @using WordFrequency.Components;
 
 <div>
-    <h3 class="text-center text-2xl font-mono text-white">Results</h3>
-    <table class="table-fixed w-1/2 m-auto bg-zinc-100 drop-shadow-lg p-5">
-        <thead>
-            <tr>
-                <th>word</th>
-                <th>frequency</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var word in words)
-            {
+    @if(words.Count == 0)
+    {
+        <h3 class="text-center text-2xl font-mono text-white">Let's Translate some Words</h3>        
+    } else
+    {
+        <h3 class="text-center text-2xl font-mono text-white">Results</h3>
+        <table class="table-fixed w-1/2 m-auto bg-zinc-100 drop-shadow-lg p-5">
+            <thead>
                 <tr>
-                    <td class="indent-3">@word.Value</td>
-                    <td class="text-center">@word.Frequency</td>
+                    <th>word</th>
+                    <th>frequency</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    <p class="font-bold text-white text-center mt-3">Number of Words: @totalWords</p>
-    <p class="font-bold text-white text-center mt-3">Total Count: @totalCount</p>
+            </thead>
+            <tbody>
+                @foreach (var word in words)
+                {
+                    <tr @key=word>
+                        <td class="indent-3">@word.Value</td>
+                        <td class="text-center">@word.Frequency</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p class="font-bold text-white text-center mt-3">Total: @totalCount</p>
+    }
 </div>
 
 @code {
 
     [Parameter]
-    public String textInput { get; set; }
-
-    List<Word> words = new List<Word>();
-    int totalWords;
+    public string TextInput { get; set; }
+    public List<Word> words;
     int totalCount;
 
-    public int getTotalCount()
+    public void getTotalCount()
     {
 
         for (int i = 0; i <= words.Count; i++)
@@ -41,30 +44,62 @@
             int curr = words[i].Frequency;
 
             totalCount += curr;
-
         }
 
-        return totalCount;
+        StateHasChanged();
 
     }
-    public int getTotalWords() => totalWords = words.Count;
+
+    public void convertInputToWordList()
+    {
+        char[] delimiterChars = { ' ', ',', '.', ':', '\t', '!', '?' };
+        //convert input string to a string array, splitting by spaces and ignoring punctuations if there is a space after them.
+
+        string[] arr = TextInput.Split(delimiterChars);
+        Array.Sort(arr, StringComparer.Ordinal);
+
+        int next = 0;
+
+        for (int i = 0; i < arr.Length - 1; i++)
+        {
+            i = next;
+            int count = 1;
+
+            //
+            for (int j = i + 1; j < arr.Length; j++)
+            {
+                if (arr[j] == arr[i])
+                {
+                    count++;
+                }
+
+                if (arr[j] != arr[i])
+                {
+                    next = j;
+                    break;
+                }
+            }
+
+            Word curr = new Word(arr[i], count);
+
+            words.Add(curr);   
+        }
+
+        words = words.OrderByDescending(w => w.Frequency).ToList();
+        StateHasChanged();
+    }
+
+    public void resetTable()
+    {
+        words = new List<Word>();
+        totalCount = 0;
+        StateHasChanged();
+    }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        /*@ dummy data @*/
-        /*words.Add(new Word("all", 1));
-        words.Add(new Word("cream", 1));
-        words.Add(new Word("for", 1));
-        words.Add(new Word("I", 1));
-        words.Add(new Word("ice", 1));
-        words.Add(new Word("scream", 3));
-        words.Add(new Word("we", 1));
-        words.Add(new Word("you", 1));*/
-
-        getTotalCount();
-        getTotalWords();
+        words = new List<Word>();
     }
-
 }

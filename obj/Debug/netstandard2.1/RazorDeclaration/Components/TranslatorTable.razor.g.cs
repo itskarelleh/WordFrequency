@@ -97,17 +97,15 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 27 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+#line 33 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
        
 
     [Parameter]
-    public String textInput { get; set; }
-
-    List<Word> words = new List<Word>();
-    int totalWords;
+    public string TextInput { get; set; }
+    public List<Word> words;
     int totalCount;
 
-    public int getTotalCount()
+    public void getTotalCount()
     {
 
         for (int i = 0; i <= words.Count; i++)
@@ -115,32 +113,64 @@ using WordFrequency.Components;
             int curr = words[i].Frequency;
 
             totalCount += curr;
-
         }
 
-        return totalCount;
+        StateHasChanged();
 
     }
-    public int getTotalWords() => totalWords = words.Count;
+
+    public void convertInputToWordList()
+    {
+        char[] delimiterChars = { ' ', ',', '.', ':', '\t', '!', '?' };
+        //convert input string to a string array, splitting by spaces and ignoring punctuations if there is a space after them.
+
+        string[] arr = TextInput.Split(delimiterChars);
+        Array.Sort(arr, StringComparer.Ordinal);
+
+        int next = 0;
+
+        for (int i = 0; i < arr.Length - 1; i++)
+        {
+            i = next;
+            int count = 1;
+
+            //
+            for (int j = i + 1; j < arr.Length; j++)
+            {
+                if (arr[j] == arr[i])
+                {
+                    count++;
+                }
+
+                if (arr[j] != arr[i])
+                {
+                    next = j;
+                    break;
+                }
+            }
+
+            Word curr = new Word(arr[i], count);
+
+            words.Add(curr);   
+        }
+
+        words = words.OrderByDescending(w => w.Frequency).ToList();
+        StateHasChanged();
+    }
+
+    public void resetTable()
+    {
+        words = new List<Word>();
+        totalCount = 0;
+        StateHasChanged();
+    }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        /*@ dummy data @*/
-        /*words.Add(new Word("all", 1));
-        words.Add(new Word("cream", 1));
-        words.Add(new Word("for", 1));
-        words.Add(new Word("I", 1));
-        words.Add(new Word("ice", 1));
-        words.Add(new Word("scream", 3));
-        words.Add(new Word("we", 1));
-        words.Add(new Word("you", 1));*/
-
-        getTotalCount();
-        getTotalWords();
+        words = new List<Word>();
     }
-
 
 #line default
 #line hidden

@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\pAOXCoO0Oy4ufFMzZrRRZ4g_TNaJZ7Ukm8H3PXtJPpA=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\gBtDOL_QMV8pQniaZIPiovm9BvJuzY7rZZTpymSm1Uo=.hash",
       "Source": "C:\\Users\\T440\\source\\repos\\WordFrequency\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\WordFrequency.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/WordFrequency.dll.br"
     },
@@ -256,7 +256,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\_JcNFpi07q6ffOjlblwXcw3_Ilbrb4tqfyHvOeDdgjc=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\POif5oNWWp1pyCg62zfinzbFAZuuMAWTcyAD2_jDN5I=.hash",
       "Source": "C:\\Users\\T440\\source\\repos\\WordFrequency\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\WordFrequency.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/WordFrequency.pdb.br"
     },
@@ -281,7 +281,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\xG6Hifhi01OX3xMt4PxXVe6SgJPe2yw_cjfmJIIZf-Y=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ygubscDV2GY_oH-RWrDxYcmWVCgyMw-Xv3hQ5vXmOmo=.hash",
       "Source": "C:\\Users\\T440\\source\\repos\\WordFrequency\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     }
