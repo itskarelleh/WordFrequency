@@ -91,36 +91,76 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 42 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
-    private String currentText { get; set; }
+    private String CurrentText;
     private String prevText;
-    private Boolean isCurrentText;
-    private int characterCount;
+    protected bool isChanged { get; set; }
+    protected bool isDisabled { get; set; }
+    private bool isTranslated { get; set; }
+    private int? characterCount { get; set; }
+
+    private void SubmitText()
+    {
+        if(!isTranslated) isTranslated = true;
+        Console.WriteLine("isTranslated = " + isTranslated);
+    }
 
     private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
     {
-        currentText = (string)args.Value;
-        isCurrentText = false;
-        isCurrentText = false;
-        if(currentText != prevText)
-            isCurrentText = false;
+        CurrentText = (string)args.Value;
 
-        characterCount = currentText.Length;
+        if (CurrentText != prevText)
+        {
+            isDisabled = false;
+        }
+        else
+        {
+            isDisabled = true;
+        }
+
+        Console.WriteLine("isChanged = " + isChanged);
+        characterCount = CurrentText.Length;
     }
 
-    private void submitText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    private string characterCountValiditiy()
     {
 
+        if (characterCount == 0)
+        {
+            return "color: gray";
+        }
+        else if (characterCount > 2048)
+        {
+            return "color: red";
+        }
+        else
+        {
+            return "";
+        }
+
     }
 
+    private string textAreaValidity()
+    {
+        if (CurrentText == "") return "textarea-error";
+        else return "textarea-default";
+    }
+
+
+  
     protected override void OnInitialized()
     {
-        currentText = "";
-        prevText = currentText;
-        isCurrentText = true;
+        CurrentText = "";
+        prevText = CurrentText;
+        characterCount = 0;
+        isTranslated = false;
+        isDisabled = true;
 
+        Console.WriteLine("isChanged = " + isChanged);
+        Console.WriteLine("isTranslated = " + isTranslated);
     }
+
 
 #line default
 #line hidden

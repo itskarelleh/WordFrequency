@@ -97,7 +97,7 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+#line 27 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
        
 
     [Parameter]
@@ -105,21 +105,40 @@ using WordFrequency.Components;
 
     List<Word> words = new List<Word>();
     int totalWords;
+    int totalCount;
+
+    public int getTotalCount()
+    {
+
+        for (int i = 0; i <= words.Count; i++)
+        {
+            int curr = words[i].Frequency;
+
+            totalCount += curr;
+
+        }
+
+        return totalCount;
+
+    }
+    public int getTotalWords() => totalWords = words.Count;
+
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
         /*@ dummy data @*/
-        words.Add(new Word("all", 1));
+        /*words.Add(new Word("all", 1));
         words.Add(new Word("cream", 1));
         words.Add(new Word("for", 1));
         words.Add(new Word("I", 1));
         words.Add(new Word("ice", 1));
         words.Add(new Word("scream", 3));
         words.Add(new Word("we", 1));
-        words.Add(new Word("you", 1));
+        words.Add(new Word("you", 1));*/
 
-        totalWords = words.Count;
+        getTotalCount();
+        getTotalWords();
     }
 
 

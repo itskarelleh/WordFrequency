@@ -338,13 +338,12 @@ C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\compressed\_fr
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\compressed\_framework\blazor.boot.json.br
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\WordFrequency.StaticWebAssets.Manifest.cache
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\WordFrequency.StaticWebAssets.xml
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\scopedcss\bundle\WordFrequency.styles.css
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.RazorTargetAssemblyInfo.cache
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.csproj.CopyComplete
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.dll
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.pdb
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\RazorDeclaration\Components\TranslatorTable.razor.g.cs
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\Razor\Components\TranslatorTable.razor.g.cs
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\AFPn0n5rsT0F9SE0Ja6EgZLAqfjUKlmjZkDOplWruwk=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\QxCb2JD9FBbI_vKPLgzqc3gmSmjOilcK7HephniGpTc=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\lJEswlMcNCDsKwHhmoNWcss8Y7lXPhdmWRG7E373AmU=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\pAOXCoO0Oy4ufFMzZrRRZ4g_TNaJZ7Ukm8H3PXtJPpA=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\_JcNFpi07q6ffOjlblwXcw3_Ilbrb4tqfyHvOeDdgjc=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\xG6Hifhi01OX3xMt4PxXVe6SgJPe2yw_cjfmJIIZf-Y=.hash

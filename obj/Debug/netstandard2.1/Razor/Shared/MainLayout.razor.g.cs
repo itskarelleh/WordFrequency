@@ -83,15 +83,13 @@ using WordFrequency.Shared;
             __builder.OpenElement(3, "div");
             __builder.AddAttribute(4, "class", "content");
             __builder.AddMarkupContent(5, "\r\n        ");
-            __builder.AddContent(6, 
 #nullable restore
 #line 5 "C:\Users\T440\source\repos\WordFrequency\Shared\MainLayout.razor"
-         Body
+__builder.AddContent(6, Body);
 
 #line default
 #line hidden
 #nullable disable
-            );
             __builder.AddMarkupContent(7, "\r\n    ");
             __builder.CloseElement();
             __builder.AddMarkupContent(8, "\r\n");
