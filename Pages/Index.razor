@@ -1,7 +1,7 @@
 ﻿@page "/"
 @using WordFrequency.Components
 
-<div class="w-screen h-full flex-row flex">
+<div class="w-full flex-row flex">
     <div id="para-form" class="w-1/2 flex flex-col">
         <div class="mt-20">
             <h1 class="text-center text-3xl text-zinc-900 text-cyan-400 font-black">Word Frequency</h1>
@@ -11,21 +11,21 @@
             <div id="form-and-character-count">
                 <label class="font-serif text-zinc-700 text-semibold">Your text</label>
                 @*TODO: border should be red and an error toast should popup to let user know that they can't get results if the text area is empty'*@
-                <textarea class="shadow-inner w-full rounded border-2 resize-none bg-zinc-100" 
-                rows="5" @onchange="updateInputText"
-                placeholder="The brown cow has speckled spots..."></textarea>
+                <textarea class="shadow-inner w-full rounded border-2 resize-none bg-zinc-100"
+                rows="5" bind="@CurrentText" @oninput="updateInputText"
+                          placeholder="The brown cow has speckled spots..."></textarea>
                 <p id="character-count" style="@characterCountValiditiy()">@characterCount / 2048 characters max</p>
             </div>
             <div id="submit-btn" class="flex justify-end">
-                <button type="button" @onclick="translateText"
-                class="p-2 w-1/3 font-mono drop-shadow-lg bg-green-400 text-white disabled:bg-zinc-500 disabled:text-zinc-100">
+                <button type="button" disabled="@isDisabled" @onclick="translateText"
+                        class="p-2 w-1/3 font-mono drop-shadow-lg bg-green-400 text-white disabled:bg-zinc-500 disabled:text-zinc-100">
                     Translate
                 </button>
             </div>
         </form>
     </div>
-    <div id="translator-table" class="w-1/2 bg-cyan-500 h-screen flex flex-column items-center shadow-inner">
-        <TranslatorTable @ref="translatorTable" TextInput="@NewText" />
+    <div id="translator-table" class="w-1/2 bg-cyan-500 h-screen flex flex-col items-center shadow-inner">
+        <TranslatorTable @ref="translatorTable" TextInput="@CurrentText" />
     </div>
     <footer class="w-1/2 absolute bg-zinc-200 bottom-0">
         <p class="indent-5 text-cyan-700">Word Frequency. 2022</p>
@@ -35,44 +35,29 @@
 
 @code {
     protected TranslatorTable translatorTable;
-    private string currentText;
-    private string NewText;
-    private bool isTranslated { get; set; }
+    private string prevText;
+    private string CurrentTextInput;
+    private string CurrentText;
     private int? characterCount { get; set; }
-    protected bool isChanged { get; set; }
     protected bool isDisabled { get; set; }
 
-    public void updateCharacterCount()
-    {
-        characterCount = NewText.Length;
-        StateHasChanged();
-    }
     public void translateText()
     {
-        isTranslated = !isTranslated;
-
-        if(translatorTable.words.Count >= 1)
-        {
-            translatorTable.resetTable();
-            
-        }
+        translatorTable.words = new List<Models.Word>();
         translatorTable.convertInputToWordList();
         translatorTable.getTotalCount();
+
+        StateHasChanged();
+        initState();
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
     {
-        NewText = (string)args.Value;
+        CurrentText = (string)args.Value;
 
-        if (NewText != currentText)
-        {
-            isDisabled = false;
-        }
-        else
-        {
-            isDisabled = true;
-        }
-        characterCount = NewText.Length;
+        if(CurrentText != prevText) isDisabled = false;
+        else isDisabled = true;
+        characterCount = CurrentText.Length;
     }
 
     private string characterCountValiditiy()
@@ -95,20 +80,25 @@
 
     private string textAreaValidity()
     {
-        if (NewText == "") return "textarea-error";
+        if (CurrentText == "") return "textarea-error";
         else return "textarea-default";
     }
-  
+
+    private void initState()
+    {
+        isDisabled = true;
+        CurrentText = "";
+        prevText = CurrentText;
+        characterCount = 0;
+
+        Console.Write("CurrentText = " + CurrentText);
+        StateHasChanged();
+    }
     protected override void OnInitialized()
     {
-        NewText = "";
-        currentText = NewText;
+        CurrentText = "";
+        prevText = CurrentText;
         characterCount = 0;
-        isTranslated = false;
         isDisabled = true;
-
-        Console.WriteLine("isChanged = " + isChanged);
-        Console.WriteLine("isTranslated = " + isTranslated);
     }
-
 }

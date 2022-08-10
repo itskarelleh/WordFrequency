@@ -94,44 +94,30 @@ using WordFrequency.Components;
 #line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
     protected TranslatorTable translatorTable;
-    private string currentText;
-    private string NewText;
-    private bool isTranslated { get; set; }
+    private string prevText;
+    private string CurrentTextInput;
+    private string CurrentText;
     private int? characterCount { get; set; }
-    protected bool isChanged { get; set; }
     protected bool isDisabled { get; set; }
 
-    public void updateCharacterCount()
-    {
-        characterCount = NewText.Length;
-        StateHasChanged();
-    }
     public void translateText()
     {
-        isTranslated = !isTranslated;
-
-        if(translatorTable.words.Count >= 1)
-        {
-            translatorTable.resetTable();
-            
-        }
         translatorTable.convertInputToWordList();
         translatorTable.getTotalCount();
+
+        StateHasChanged();
+        initState();
+
+
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
     {
-        NewText = (string)args.Value;
+        CurrentText = (string)args.Value;
 
-        if (NewText != currentText)
-        {
-            isDisabled = false;
-        }
-        else
-        {
-            isDisabled = true;
-        }
-        characterCount = NewText.Length;
+        if(CurrentText != prevText) isDisabled = false;
+        else isDisabled = true;
+        characterCount = CurrentText.Length;
     }
 
     private string characterCountValiditiy()
@@ -154,22 +140,27 @@ using WordFrequency.Components;
 
     private string textAreaValidity()
     {
-        if (NewText == "") return "textarea-error";
+        if (CurrentText == "") return "textarea-error";
         else return "textarea-default";
     }
-  
+
+    private void initState()
+    {
+        isDisabled = true;
+        CurrentText = "";
+        prevText = CurrentText;
+        characterCount = 0;
+
+        Console.Write("CurrentText = " + CurrentText);
+        StateHasChanged();
+    }
     protected override void OnInitialized()
     {
-        NewText = "";
-        currentText = NewText;
+        CurrentText = "";
+        prevText = CurrentText;
         characterCount = 0;
-        isTranslated = false;
         isDisabled = true;
-
-        Console.WriteLine("isChanged = " + isChanged);
-        Console.WriteLine("isTranslated = " + isTranslated);
     }
-
 
 #line default
 #line hidden

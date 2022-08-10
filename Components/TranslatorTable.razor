@@ -1,44 +1,46 @@
 ﻿@using WordFrequency.Models;
 @using WordFrequency.Components;
 
-<div>
-    @if(words.Count == 0)
+    <div class="m-auto">  
+        <h3 class="m-auto text-center text-3xl font-semibold font-sans text-white">@(words.Count == 0 ?
+            "Time to Translate some Words! 📝" : "Results")
+        </h3>
+        <h4 class="m-auto text-center text-2xl font-sans text-white">@(words.Count == 0 ? "Write or copy + paste text into the textbox" : null)</h4>
+    </div>
+
+    @if (words.Count != 0)
     {
-        <h3 class="text-center text-2xl font-mono text-white">Let's Translate some Words</h3>        
-    } else
-    {
-        <h3 class="text-center text-2xl font-mono text-white">Results</h3>
-        <table class="table-fixed w-1/2 m-auto bg-zinc-100 drop-shadow-lg p-5">
-            <thead>
-                <tr>
-                    <th>word</th>
-                    <th>frequency</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var word in words)
-                {
-                    <tr @key=word>
-                        <td class="indent-3">@word.Value</td>
-                        <td class="text-center">@word.Frequency</td>
+        <div class="h-1/3 w-1/2 overflow-auto">
+            <table class="table-auto w-full bg-white overflow-auto">
+                <thead>
+                    <tr>
+                        <th>word</th>
+                        <th>frequency</th>
                     </tr>
-                }
-            </tbody>
-        </table>
-        <p class="font-bold text-white text-center mt-3">Total: @totalCount</p>
+                </thead>
+                <tbody class="overflow-y-auto">
+                    @foreach (var word in words)
+                    {
+                        <tr @key=word>
+                            <td class="indent-3">@word.Value</td>
+                            <td class="text-center">@word.Frequency</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p class="font-bold text-white text-center mt-3">Total: @totalCount</p>
+        </div>
     }
-</div>
 
 @code {
 
     [Parameter]
     public string TextInput { get; set; }
     public List<Word> words;
-    int totalCount;
+    public int totalCount;
 
     public void getTotalCount()
     {
-
         for (int i = 0; i <= words.Count; i++)
         {
             int curr = words[i].Frequency;
@@ -56,6 +58,7 @@
         //convert input string to a string array, splitting by spaces and ignoring punctuations if there is a space after them.
 
         string[] arr = TextInput.Split(delimiterChars);
+
         Array.Sort(arr, StringComparer.Ordinal);
 
         int next = 0;
@@ -82,17 +85,18 @@
 
             Word curr = new Word(arr[i], count);
 
-            words.Add(curr);   
+            words.Add(curr);
         }
 
         words = words.OrderByDescending(w => w.Frequency).ToList();
+
         StateHasChanged();
     }
 
     public void resetTable()
     {
         words = new List<Word>();
-        totalCount = 0;
+        //totalCount = 0;
         StateHasChanged();
     }
 

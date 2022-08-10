@@ -97,17 +97,16 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+#line 35 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
        
 
     [Parameter]
     public string TextInput { get; set; }
     public List<Word> words;
-    int totalCount;
+    public int totalCount;
 
     public void getTotalCount()
     {
-
         for (int i = 0; i <= words.Count; i++)
         {
             int curr = words[i].Frequency;
@@ -125,6 +124,7 @@ using WordFrequency.Components;
         //convert input string to a string array, splitting by spaces and ignoring punctuations if there is a space after them.
 
         string[] arr = TextInput.Split(delimiterChars);
+
         Array.Sort(arr, StringComparer.Ordinal);
 
         int next = 0;
@@ -151,17 +151,18 @@ using WordFrequency.Components;
 
             Word curr = new Word(arr[i], count);
 
-            words.Add(curr);   
+            words.Add(curr);
         }
 
         words = words.OrderByDescending(w => w.Frequency).ToList();
+
         StateHasChanged();
     }
 
     public void resetTable()
     {
         words = new List<Word>();
-        totalCount = 0;
+        //totalCount = 0;
         StateHasChanged();
     }
 
