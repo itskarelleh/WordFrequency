@@ -7,7 +7,6 @@
 namespace WordFrequency.Components
 {
     #line hidden
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -89,6 +88,20 @@ using WordFrequency.Components;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using System;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
     public partial class TranslatorTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -102,28 +115,20 @@ using WordFrequency.Components;
 
     [Parameter]
     public string TextInput { get; set; }
-    public List<Word> words;
-    public int totalCount;
-
-    public void getTotalCount()
-    {
-        for (int i = 0; i <= words.Count; i++)
-        {
-            int curr = words[i].Frequency;
-
-            totalCount += curr;
-        }
-
-        StateHasChanged();
-
-    }
+    public List<Word> words { get; set; } = new List<Word>();
 
     public void convertInputToWordList()
     {
-        char[] delimiterChars = { ' ', ',', '.', ':', '\t', '!', '?' };
-        //convert input string to a string array, splitting by spaces and ignoring punctuations if there is a space after them.
+        string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
 
-        string[] arr = TextInput.Split(delimiterChars);
+        //if (str == " ") throw new Exception("The body of text you entered is empty. Please enter some words.");
+        
+        if (words.Count >= 1)
+        {
+            words = new List<Word>();
+        }
+
+        string[] arr = str.Split("");
 
         Array.Sort(arr, StringComparer.Ordinal);
 
@@ -134,7 +139,6 @@ using WordFrequency.Components;
             i = next;
             int count = 1;
 
-            //
             for (int j = i + 1; j < arr.Length; j++)
             {
                 if (arr[j] == arr[i])
@@ -156,13 +160,12 @@ using WordFrequency.Components;
 
         words = words.OrderByDescending(w => w.Frequency).ToList();
 
-        StateHasChanged();
+        //StateHasChanged();
     }
-
+     
     public void resetTable()
     {
         words = new List<Word>();
-        //totalCount = 0;
         StateHasChanged();
     }
 

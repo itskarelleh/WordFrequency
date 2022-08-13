@@ -14,6 +14,11 @@
 <body>
     <app>Loading...</app>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script type="text/javascript">
+        window.getDimensions = () => {
+            return { width: window.innerWidth, height: window.innerHeight };
+        };
+    </script>
 </body>
 
 </html>

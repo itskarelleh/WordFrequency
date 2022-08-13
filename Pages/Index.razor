@@ -1,54 +1,48 @@
 ﻿@page "/"
-@using WordFrequency.Components
+@using WordFrequency.Components;
 
-<div class="w-full flex-row flex">
-    <div id="para-form" class="w-1/2 flex flex-col">
-        <div class="mt-20">
-            <h1 class="text-center text-3xl text-zinc-900 text-cyan-400 font-black">Word Frequency</h1>
+<div class="h-screen sm:w-full sm:h-auto flex-col sm:flex-row flex">
+    <div id="word-frequency-form" class="w-full h-1/2 sm:h-auto sm:w-1/2 flex flex-col">
+        <div class="mt-5 sm:mt-0">
+            <h1 class="sm:mt-20 text-center text-3xl text-zinc-900 text-cyan-400 font-black">Word Frequency</h1>
             <h3 class="mt-0 font-serif text-center text-xl text-zinc-600 font-light">See how many times words occur in a body of text</h3>
         </div>
-        <form class="mt-20 flex flex-col w-2/3 m-auto justify-items-end">
+        <form class="mt-5 sm:mt-20 flex flex-col w-2/3 m-auto justify-items-end">
             <div id="form-and-character-count">
                 <label class="font-serif text-zinc-700 text-semibold">Your text</label>
-                @*TODO: border should be red and an error toast should popup to let user know that they can't get results if the text area is empty'*@
                 <textarea class="shadow-inner w-full rounded border-2 resize-none bg-zinc-100"
-                rows="5" bind="@CurrentText" @oninput="updateInputText"
-                          placeholder="The brown cow has speckled spots..."></textarea>
+                rows="5" @bind="CurrentText" @oninput="updateInputText"
+                placeholder="The brown cow has speckled spots..."></textarea>
                 <p id="character-count" style="@characterCountValiditiy()">@characterCount / 2048 characters max</p>
             </div>
             <div id="submit-btn" class="flex justify-end">
                 <button type="button" disabled="@isDisabled" @onclick="translateText"
-                        class="p-2 w-1/3 font-mono drop-shadow-lg bg-green-400 text-white disabled:bg-zinc-500 disabled:text-zinc-100">
+                class="p-2 w-1/3 font-mono drop-shadow-lg bg-green-400 text-white disabled:bg-zinc-500 disabled:text-zinc-100">
                     Translate
                 </button>
             </div>
         </form>
     </div>
-    <div id="translator-table" class="w-1/2 bg-cyan-500 h-screen flex flex-col items-center shadow-inner">
+    <div id="translator-table" class="w-full sm:w-1/2 bg-cyan-500 h-1/2 sm:h-screen flex flex-row sm:flex-col items-center shadow-inner">
         <TranslatorTable @ref="translatorTable" TextInput="@CurrentText" />
     </div>
-    <footer class="w-1/2 absolute bg-zinc-200 bottom-0">
+    <footer class="w-full sm:w-1/2 absolute bg-zinc-200 bottom-0">
         <p class="indent-5 text-cyan-700">Word Frequency. 2022</p>
     </footer>
 </div>
-@*TODO: create a toast component*@
 
 @code {
     protected TranslatorTable translatorTable;
     private string prevText;
-    private string CurrentTextInput;
     private string CurrentText;
     private int? characterCount { get; set; }
     protected bool isDisabled { get; set; }
+    public int Width { get; set; }
 
     public void translateText()
     {
-        translatorTable.words = new List<Models.Word>();
-        translatorTable.convertInputToWordList();
-        translatorTable.getTotalCount();
 
-        StateHasChanged();
-        initState();
+        translatorTable.convertInputToWordList();
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
@@ -94,6 +88,7 @@
         Console.Write("CurrentText = " + CurrentText);
         StateHasChanged();
     }
+
     protected override void OnInitialized()
     {
         CurrentText = "";

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WordFrequency.Pages
+namespace WordFrequency.Shared
 {
     #line hidden
     using System;
@@ -75,92 +75,13 @@ using WordFrequency.Shared;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
-using WordFrequency.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class ErrorBoundary : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 34 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
-       
-    protected TranslatorTable translatorTable;
-    private string prevText;
-    private string CurrentText;
-    private int? characterCount { get; set; }
-    protected bool isDisabled { get; set; }
-    public int Width { get; set; }
-
-    public void translateText()
-    {
-
-        translatorTable.convertInputToWordList();
-    }
-
-    private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
-    {
-        CurrentText = (string)args.Value;
-
-        if(CurrentText != prevText) isDisabled = false;
-        else isDisabled = true;
-        characterCount = CurrentText.Length;
-    }
-
-    private string characterCountValiditiy()
-    {
-
-        if (characterCount == 0)
-        {
-            return "color: gray";
-        }
-        else if (characterCount > 2048)
-        {
-            return "color: red";
-        }
-        else
-        {
-            return "";
-        }
-
-    }
-
-    private string textAreaValidity()
-    {
-        if (CurrentText == "") return "textarea-error";
-        else return "textarea-default";
-    }
-
-    private void initState()
-    {
-        isDisabled = true;
-        CurrentText = "";
-        prevText = CurrentText;
-        characterCount = 0;
-
-        Console.Write("CurrentText = " + CurrentText);
-        StateHasChanged();
-    }
-
-    protected override void OnInitialized()
-    {
-        CurrentText = "";
-        prevText = CurrentText;
-        characterCount = 0;
-        isDisabled = true;
-    }
-
-#line default
-#line hidden
-#nullable disable
     }
 }
 #pragma warning restore 1591
