@@ -344,6 +344,6 @@ C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.csproj.CopyComplete
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.dll
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.pdb
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\fGurWx8ssH8-plsr2-a2TYxTa0wbNZLXaQxqmDj0c0U=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\5zJMqoc9Zgsczn6ZhwMmFhOMT4WWOUd91B9STNccc64=.hash
-C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\DVI0R_bW6hU5099POnIsIGtTBg6HEkpPk7zVWitRLzA=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\_reokcKXKptaVWCMcjTBWaV46wf3ZJDULao-myj50Ns=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\AzdJGYhlxgTLfV32wwipbNF4TBZk2GwjgFCltZm3sg4=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\S3lfwF5rGnoEBFn-xnWADFZTbEN9K-aksaFMCCIrWyo=.hash

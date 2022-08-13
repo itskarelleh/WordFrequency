@@ -2,6 +2,8 @@
 @using WordFrequency.Components;
 @using System;
 @using System.Text.RegularExpressions;
+
+<div class="my-auto w-full h-3/4 flex flex-col items-center">
     <div class="m-auto">  
         <h3 class="m-auto text-center text-3xl font-semibold font-sans text-white">@(words.Count == 0 ?
             "Time to Translate some Words! 📝" : "Results")
@@ -11,15 +13,15 @@
 
     @if (words.Count != 0)
     {
-        <div class="h-1/3 w-1/2 overflow-auto">
-            <table class="table-auto w-full bg-white overflow-auto">
+        <div class="mx-auto h-2/3 w-1/2 sm:w-2/3 overflow-auto">
+            <table class="h-1/2 sm:h-full sm:h-auto table-auto w-full bg-white overflow-auto">
                 <thead>
                     <tr>
                         <th>word</th>
                         <th>frequency</th>
                     </tr>
                 </thead>
-                <tbody class="overflow-y-auto">
+                <tbody class="overflow-y-auto h-full">
                     @foreach (var word in words)
                     {
                         <tr @key=word>
@@ -31,7 +33,7 @@
             </table>
         </div>
     }
-
+</div>
 @code {
 
     [Parameter]
@@ -42,14 +44,11 @@
     {
         string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
 
-        //if (str == " ") throw new Exception("The body of text you entered is empty. Please enter some words.");
-        
-        if (words.Count >= 1)
-        {
-            words = new List<Word>();
+        if (str == "") {
+            throw new Exception("The body of text you entered is empty. Please enter some words.");
         }
 
-        string[] arr = str.Split("");
+        string[] arr = str.Split(" ");
 
         Array.Sort(arr, StringComparer.Ordinal);
 

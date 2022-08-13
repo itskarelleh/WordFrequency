@@ -102,8 +102,9 @@ using WordFrequency.Components;
 
     public void translateText()
     {
-
+        translatorTable.resetTable();
         translatorTable.convertInputToWordList();
+        initState();
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
