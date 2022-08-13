@@ -1,6 +1,6 @@
 ﻿@page "/"
 @using WordFrequency.Components;
-
+@inject IJSRuntime JS;
 <div class="h-screen sm:w-full sm:h-auto flex-col sm:flex-row flex">
     <div id="word-frequency-form" class="w-full h-1/2 sm:h-auto sm:w-1/2 flex flex-col">
         <div class="mt-5 sm:mt-0">
@@ -35,15 +35,24 @@
     protected TranslatorTable translatorTable;
     private string prevText;
     private string CurrentText;
+    string alertMessage = "";
     private int? characterCount { get; set; }
     protected bool isDisabled { get; set; }
     public int Width { get; set; }
 
-    public void translateText()
+
+    public async void translateText()
     {
-        translatorTable.resetTable();
-        translatorTable.convertInputToWordList();
-        initState();
+        if(CurrentText.Trim() == "") {
+            alertMessage = "Textbox is empty. Please enter some words";
+
+            await JS.InvokeVoidAsync("Alert", alertMessage);
+        } else {
+            translatorTable.resetTable();
+            translatorTable.convertInputToWordList();
+            initState();
+        }
+       
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)

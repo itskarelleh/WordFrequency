@@ -121,10 +121,6 @@ using System.Text.RegularExpressions;
     {
         string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
 
-        if (str == "") {
-            throw new Exception("The body of text you entered is empty. Please enter some words.");
-        }
-
         string[] arr = str.Split(" ");
 
         Array.Sort(arr, StringComparer.Ordinal);

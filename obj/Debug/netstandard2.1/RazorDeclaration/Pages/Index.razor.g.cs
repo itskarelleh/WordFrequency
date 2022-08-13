@@ -91,20 +91,29 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
     protected TranslatorTable translatorTable;
     private string prevText;
     private string CurrentText;
+    string alertMessage = "";
     private int? characterCount { get; set; }
     protected bool isDisabled { get; set; }
     public int Width { get; set; }
 
-    public void translateText()
+
+    public async void translateText()
     {
-        translatorTable.resetTable();
-        translatorTable.convertInputToWordList();
-        initState();
+        if(CurrentText.Trim() == "") {
+            alertMessage = "Textbox is empty. Please enter some words";
+
+            await JS.InvokeVoidAsync("Alert", alertMessage);
+        } else {
+            translatorTable.resetTable();
+            translatorTable.convertInputToWordList();
+            initState();
+        }
+       
     }
 
     private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
@@ -162,6 +171,7 @@ using WordFrequency.Components;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }
 }
 #pragma warning restore 1591
