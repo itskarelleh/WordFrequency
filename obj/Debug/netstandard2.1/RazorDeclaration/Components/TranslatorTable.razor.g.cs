@@ -122,7 +122,7 @@ using System.Text.RegularExpressions;
         string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
 
         string[] arr = str.Split(" ");
-
+        arr = arr.Select(s => s.ToLowerInvariant()).ToArray();
         Array.Sort(arr, StringComparer.Ordinal);
 
         int next = 0;

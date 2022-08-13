@@ -91,7 +91,7 @@ using WordFrequency.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 36 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 34 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
     protected TranslatorTable translatorTable;
     private string prevText;
