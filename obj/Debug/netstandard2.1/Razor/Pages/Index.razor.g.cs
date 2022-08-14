@@ -79,11 +79,11 @@ using WordFrequency.Components;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : global::Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "h-screen sm:w-full sm:h-auto flex-col sm:flex-row flex");
@@ -107,7 +107,7 @@ using WordFrequency.Components;
             __builder.OpenElement(15, "textarea");
             __builder.AddAttribute(16, "class", "shadow-inner w-full rounded border-2 resize-none bg-zinc-100");
             __builder.AddAttribute(17, "rows", "5");
-            __builder.AddAttribute(18, "oninput", global::Microsoft.AspNetCore.Components.EventCallback.Factory.Create<global::Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
+            __builder.AddAttribute(18, "oninput", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.ChangeEventArgs>(this, 
 #nullable restore
 #line 14 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
                                                         updateInputText
@@ -117,7 +117,7 @@ using WordFrequency.Components;
 #nullable disable
             ));
             __builder.AddAttribute(19, "placeholder", "The brown cow has speckled spots...");
-            __builder.AddAttribute(20, "value", global::Microsoft.AspNetCore.Components.BindConverter.FormatValue(
+            __builder.AddAttribute(20, "value", Microsoft.AspNetCore.Components.BindConverter.FormatValue(
 #nullable restore
 #line 14 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
                                  CurrentText
@@ -126,7 +126,7 @@ using WordFrequency.Components;
 #line hidden
 #nullable disable
             ));
-            __builder.AddAttribute(21, "onchange", global::Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CurrentText = __value, CurrentText));
+            __builder.AddAttribute(21, "onchange", Microsoft.AspNetCore.Components.EventCallback.Factory.CreateBinder(this, __value => CurrentText = __value, CurrentText));
             __builder.SetUpdatesAttributeName("value");
             __builder.CloseElement();
             __builder.AddMarkupContent(22, "\r\n                ");
@@ -168,7 +168,7 @@ __builder.AddContent(26, characterCount);
 #line hidden
 #nullable disable
             );
-            __builder.AddAttribute(37, "onclick", global::Microsoft.AspNetCore.Components.EventCallback.Factory.Create<global::Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
+            __builder.AddAttribute(37, "onclick", Microsoft.AspNetCore.Components.EventCallback.Factory.Create<Microsoft.AspNetCore.Components.Web.MouseEventArgs>(this, 
 #nullable restore
 #line 19 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
                                                                         translateText
@@ -191,8 +191,8 @@ __builder.AddContent(26, characterCount);
             __builder.AddAttribute(45, "id", "translator-table");
             __builder.AddAttribute(46, "class", "w-full sm:w-1/2 bg-cyan-500 flex h-1/2 sm:h-screen shadow-inner");
             __builder.AddMarkupContent(47, "\r\n        ");
-            __builder.OpenComponent<global::WordFrequency.Components.TranslatorTable>(48);
-            __builder.AddAttribute(49, "TextInput", global::Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<global::System.String>(
+            __builder.OpenComponent<WordFrequency.Components.TranslatorTable>(48);
+            __builder.AddAttribute(49, "TextInput", global::Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.String>(
 #nullable restore
 #line 27 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
                                                             CurrentText
