@@ -1768,11 +1768,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\T440\\source\\repos\\WordFrequency\\WordFrequency.csproj",
+      "projectUniqueName": "C:\\Users\\T440\\Source\\Repos\\karellehofler\\word-frequency\\WordFrequency.csproj",
       "projectName": "WordFrequency",
-      "projectPath": "C:\\Users\\T440\\source\\repos\\WordFrequency\\WordFrequency.csproj",
+      "projectPath": "C:\\Users\\T440\\Source\\Repos\\karellehofler\\word-frequency\\WordFrequency.csproj",
       "packagesPath": "C:\\Users\\T440\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\T440\\source\\repos\\WordFrequency\\obj\\",
+      "outputPath": "C:\\Users\\T440\\Source\\Repos\\karellehofler\\word-frequency\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\T440\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1836,7 +1836,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.7.22377.5\\RuntimeIdentifierGraph.json"
       }
     }
   }

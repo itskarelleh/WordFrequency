@@ -13,85 +13,85 @@ namespace WordFrequency.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 1 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 3 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 4 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 5 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 6 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 7 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 8 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using WordFrequency;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\T440\source\repos\WordFrequency\_Imports.razor"
+#line 9 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
 using WordFrequency.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
 using WordFrequency.Components;
 
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : global::Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 34 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
        
     protected TranslatorTable translatorTable;
     private string prevText;

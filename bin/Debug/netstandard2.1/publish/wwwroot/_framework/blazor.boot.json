@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "WordFrequency.dll": "sha256-bTFXwu4kkgJpVA8AIqvHk2wSXxAhUzlxEeZIIry5i4M=",
+      "WordFrequency.dll": "sha256-fkjOp7FqjZeb4rqEXHzHvkp6uaOD1Sc2GG5PZ0pgYzM=",
       "Microsoft.Extensions.DependencyInjection.Abstractions.dll": "sha256-Bs1Wrmh4ex9dTEIT0yCRF52N\/wOmsBDt457BHr0\/ssM=",
       "netstandard.dll": "sha256-\/zcPVM75OAY+joGVM8yIC1gO1SFYWP1CFERgQ8PJkfA=",
       "System.Xml.Linq.dll": "sha256-IPbQMdJxZXdk8HTlaPyXdQ6Zb82iZLphnM74yO4EURQ=",
@@ -59,7 +59,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "WordFrequency.pdb": "sha256-3HlFBVzFGxC\/Z54WzeirsnKcQRu4F2keflRht6yTxjs="
+      "WordFrequency.pdb": "sha256-KKKQ8XApadp83WTMK5SussEqGXfeg+mhCN\/QPKarQCU="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",
