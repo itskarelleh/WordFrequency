@@ -3,7 +3,7 @@ name: Deploy to GitHub pages
 # Run workflow on every push to the master branch
 on:
 push:
-branches: [ master ]
+branches: [ main ]
 
 jobs:
 deploy-to-github-pages:
@@ -23,9 +23,9 @@ dotnet-version: 3.1
 – name: Publish .NET Core Project
 run: dotnet publish BlazorGitHubPagesDemo.csproj -c Release -o release –nologo
 
-# Changes the base tag in index.html from ‘/’ to ‘BlazorGitHubPagesDemo’ to match the GitHub Pages repository subdirectory
-– name: Change base-tag in index.html from / to BlazorGitHubPagesDemo
-run: sed -i ‘s/<base href=”\/” \/>/<base href=”\/BlazorGitHubPagesDemo\/” \/>/g’ release/wwwroot/index.html
+# Changes the base tag in index.html from ‘/’ to ‘WordFrequency’ to match the GitHub Pages repository subdirectory
+– name: Change base-tag in index.html from / to WordFrequency
+run: sed -i ‘s/<base href=”\/” \/>/<base href=”\/WordFrequency\/” \/>/g’ release/wwwroot/index.html
 
 # Copy index.html to 404.html to serve the same file when a file is not found
 – name: copy index.html to 404.html
