@@ -1,4 +1,4 @@
-name: Word Frequency
+name: Deploy to GitHub pages
 
 # Run workflow on every push to the master branch
 on:
@@ -20,7 +20,7 @@ with:
 dotnet-version: 3.1
 
 # Publishes the Blazor project to the release folder
-– name: Word Frequency
+– name: Publish .NET Core Project
 run: dotnet publish BlazorGitHubPagesDemo.csproj -c Release -o release –nologo
 
 # Changes the base tag in index.html from ‘/’ to ‘BlazorGitHubPagesDemo’ to match the GitHub Pages repository subdirectory
