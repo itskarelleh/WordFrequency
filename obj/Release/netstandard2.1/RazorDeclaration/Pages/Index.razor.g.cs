@@ -69,24 +69,17 @@ using WordFrequency;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
+#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
 using WordFrequency.Shared;
 
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
-using WordFrequency.Components;
-
-#line default
-#line hidden
-#nullable disable
-    [global::Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : global::Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WordFrequency.Components
+namespace WordFrequency.Shared
 {
     #line hidden
     using System.Collections.Generic;
@@ -75,28 +75,28 @@ using WordFrequency.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Components\TranslatorTable.razor"
+#line 1 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using WordFrequency.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Components\TranslatorTable.razor"
+#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using WordFrequency.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Components\TranslatorTable.razor"
+#line 3 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using System;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Components\TranslatorTable.razor"
+#line 4 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using System.Text.RegularExpressions;
 
 #line default
@@ -110,7 +110,7 @@ using System.Text.RegularExpressions;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 37 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Components\TranslatorTable.razor"
+#line 37 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
        
 
     [Parameter]

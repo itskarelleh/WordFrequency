@@ -4,10 +4,9 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WordFrequency.Pages
+namespace WordFrequency.Shared
 {
     #line hidden
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -69,14 +68,34 @@ using WordFrequency;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
+#line 1 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
+using WordFrequency.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using WordFrequency.Shared;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 3 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
+using System;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class TranslatorTable : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -84,87 +103,68 @@ using WordFrequency.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Pages\Index.razor"
+#line 37 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
        
-    protected TranslatorTable translatorTable;
-    private string prevText;
-    private string CurrentText;
-    string alertMessage = "";
-    private int? characterCount { get; set; }
-    protected bool isDisabled { get; set; }
-    public int Width { get; set; }
 
+    [Parameter]
+    public string TextInput { get; set; }
+    public List<Word> words { get; set; } = new List<Word>();
 
-    public async void translateText()
+    public void convertInputToWordList()
     {
-        if(CurrentText.Trim() == "") {
-            alertMessage = "Textbox is empty. Please enter some words";
+        string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
 
-            await JS.InvokeVoidAsync("Alert", alertMessage);
-        } else {
-            translatorTable.resetTable();
-            translatorTable.convertInputToWordList();
-            initState();
-        }
-       
-    }
+        string[] arr = str.Split(" ");
+        arr = arr.Select(s => s.ToLowerInvariant()).ToArray();
+        Array.Sort(arr, StringComparer.Ordinal);
 
-    private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
-    {
-        CurrentText = (string)args.Value;
+        int next = 0;
 
-        if(CurrentText != prevText) isDisabled = false;
-        else isDisabled = true;
-        characterCount = CurrentText.Length;
-    }
-
-    private string characterCountValiditiy()
-    {
-
-        if (characterCount == 0)
+        for (int i = 0; i < arr.Length - 1; i++)
         {
-            return "color: gray";
-        }
-        else if (characterCount > 2048)
-        {
-            return "color: red";
-        }
-        else
-        {
-            return "";
+            i = next;
+            int count = 1;
+
+            for (int j = i + 1; j < arr.Length; j++)
+            {
+                if (arr[j] == arr[i])
+                {
+                    count++;
+                }
+
+                if (arr[j] != arr[i])
+                {
+                    next = j;
+                    break;
+                }
+            }
+
+            Word curr = new Word(arr[i], count);
+
+            words.Add(curr);
         }
 
+        words = words.OrderByDescending(w => w.Frequency).ToList();
+
+        //StateHasChanged();
     }
-
-    private string textAreaValidity()
+     
+    public void resetTable()
     {
-        if (CurrentText == "") return "textarea-error";
-        else return "textarea-default";
-    }
-
-    private void initState()
-    {
-        isDisabled = true;
-        CurrentText = "";
-        prevText = CurrentText;
-        characterCount = 0;
-
-        Console.Write("CurrentText = " + CurrentText);
+        words = new List<Word>();
         StateHasChanged();
     }
 
     protected override void OnInitialized()
     {
-        CurrentText = "";
-        prevText = CurrentText;
-        characterCount = 0;
-        isDisabled = true;
+        base.OnInitialized();
+
+        words = new List<Word>();
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }
 }
 #pragma warning restore 1591
