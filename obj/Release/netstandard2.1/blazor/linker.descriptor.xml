@@ -1,0 +1,5 @@
+﻿<linker>
+  <assembly fullname="WordFrequency">
+    <type fullname="*" required="true" />
+  </assembly>
+</linker>

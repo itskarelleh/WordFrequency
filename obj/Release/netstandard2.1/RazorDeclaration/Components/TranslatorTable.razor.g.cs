@@ -7,7 +7,6 @@
 namespace WordFrequency.Components
 {
     #line hidden
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -82,29 +81,93 @@ using WordFrequency.Models;
 #line default
 #line hidden
 #nullable disable
-    public partial class TranslatorTable : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using WordFrequency.Components;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using System;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+using System.Text.RegularExpressions;
+
+#line default
+#line hidden
+#nullable disable
+    public partial class TranslatorTable : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
 #nullable restore
-#line 20 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
+#line 37 "C:\Users\T440\source\repos\WordFrequency\Components\TranslatorTable.razor"
        
 
     [Parameter]
-    public String textInput { get; set; }
+    public string TextInput { get; set; }
+    public List<Word> words { get; set; } = new List<Word>();
 
-    private List<Word> words;
+    public void convertInputToWordList()
+    {
+        string str = Regex.Replace(TextInput, @"[^\w\s]", string.Empty);
+
+        string[] arr = str.Split(" ");
+        arr = arr.Select(s => s.ToLowerInvariant()).ToArray();
+        Array.Sort(arr, StringComparer.Ordinal);
+
+        int next = 0;
+
+        for (int i = 0; i < arr.Length - 1; i++)
+        {
+            i = next;
+            int count = 1;
+
+            for (int j = i + 1; j < arr.Length; j++)
+            {
+                if (arr[j] == arr[i])
+                {
+                    count++;
+                }
+
+                if (arr[j] != arr[i])
+                {
+                    next = j;
+                    break;
+                }
+            }
+
+            Word curr = new Word(arr[i], count);
+
+            words.Add(curr);
+        }
+
+        words = words.OrderByDescending(w => w.Frequency).ToList();
+
+        //StateHasChanged();
+    }
+     
+    public void resetTable()
+    {
+        words = new List<Word>();
+        StateHasChanged();
+    }
 
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-
+        words = new List<Word>();
     }
-
 
 #line default
 #line hidden

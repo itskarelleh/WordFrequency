@@ -75,36 +75,103 @@ using WordFrequency.Shared;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
-    public partial class Index : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+using WordFrequency.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [global::Microsoft.AspNetCore.Components.RouteAttribute("/")]
+    public partial class Index : global::Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
+        protected override void BuildRenderTree(global::Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
+#line 34 "C:\Users\T440\source\repos\WordFrequency\Pages\Index.razor"
        
-    private String currentText { get; set; }
-    private String prevText;
-    private Boolean textChanged = false;
+    protected TranslatorTable translatorTable;
+    private string prevText;
+    private string CurrentText;
+    string alertMessage = "";
+    private int? characterCount { get; set; }
+    protected bool isDisabled { get; set; }
+    public int Width { get; set; }
 
-    private void updateCurrentText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+
+    public async void translateText()
     {
-        currentText = (string)args.Value;
-        textChanged = true;
+        if(CurrentText.Trim() == "") {
+            alertMessage = "Textbox is empty. Please enter some words";
+
+            await JS.InvokeVoidAsync("Alert", alertMessage);
+        } else {
+            translatorTable.resetTable();
+            translatorTable.convertInputToWordList();
+            initState();
+        }
+       
+    }
+
+    private void updateInputText(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    {
+        CurrentText = (string)args.Value;
+
+        if(CurrentText != prevText) isDisabled = false;
+        else isDisabled = true;
+        characterCount = CurrentText.Length;
+    }
+
+    private string characterCountValiditiy()
+    {
+
+        if (characterCount == 0)
+        {
+            return "color: gray";
+        }
+        else if (characterCount > 2048)
+        {
+            return "color: red";
+        }
+        else
+        {
+            return "";
+        }
+
+    }
+
+    private string textAreaValidity()
+    {
+        if (CurrentText == "") return "textarea-error";
+        else return "textarea-default";
+    }
+
+    private void initState()
+    {
+        isDisabled = true;
+        CurrentText = "";
+        prevText = CurrentText;
+        characterCount = 0;
+
+        Console.Write("CurrentText = " + CurrentText);
+        StateHasChanged();
     }
 
     protected override void OnInitialized()
     {
-        currentText = "";
-        prevText = currentText;
+        CurrentText = "";
+        prevText = CurrentText;
+        characterCount = 0;
+        isDisabled = true;
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
     }
 }
 #pragma warning restore 1591

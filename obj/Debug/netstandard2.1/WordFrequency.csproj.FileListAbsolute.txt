@@ -347,3 +347,8 @@ C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\WordFrequency.
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\bTFXwu4kkgJpVA8AIqvHk2wSXxAhUzlxEeZIIry5i4M=.hash
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\3HlFBVzFGxC-Z54WzeirsnKcQRu4F2keflRht6yTxjs=.hash
 C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\integrity\Mu3msYTz0UJ1pggLErhqZa0jryOjQdPKysDlAKL0Nzw=.hash
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\WordFrequency.StaticWebAssets.Pack.cache
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\msbuild.WordFrequency.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\msbuild.build.WordFrequency.props
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\msbuild.buildMultiTargeting.WordFrequency.props
+C:\Users\T440\source\repos\WordFrequency\obj\Debug\netstandard2.1\staticwebassets\msbuild.buildTransitive.WordFrequency.props
