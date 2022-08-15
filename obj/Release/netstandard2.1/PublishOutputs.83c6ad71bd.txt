@@ -2,6 +2,7 @@ C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\.nojekyll
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\404.html
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\app.css
+C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\decode.js
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\favicon.ico
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\index.html
 C:\Users\T440\Source\Repos\karellehofler\word-frequency\bin\Release\netstandard2.1\publish\wwwroot\script.js

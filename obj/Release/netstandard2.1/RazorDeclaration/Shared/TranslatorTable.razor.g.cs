@@ -68,13 +68,6 @@ using WordFrequency;
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\_Imports.razor"
-using WordFrequency.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 1 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
 using WordFrequency.Models;
 
@@ -83,7 +76,7 @@ using WordFrequency.Models;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\T440\Source\Repos\karellehofler\word-frequency\Shared\TranslatorTable.razor"
-using WordFrequency.Components;
+using WordFrequency.Shared;
 
 #line default
 #line hidden
